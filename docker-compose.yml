@@ -1,0 +1,19 @@
+services:
+  notification-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: notification-api
+    ports:
+      - "3002:3001"
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      SPRING_DATASOURCE_URL: jdbc:postgresql://agritech_db:5432/agritech
+      SPRING_DATASOURCE_USERNAME: agritech_user
+      SPRING_DATASOURCE_PASSWORD: change_me
+    networks:
+      - agritechsystemapp_default
+
+networks:
+  agritechsystemapp_default:
+    external: true
