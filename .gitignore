@@ -1,3 +1,7 @@
 target/
 .env
 *.log
+
+# Ollama AI service
+ollama/
+models/
